@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
 # Excluir páginas sem valor SEO
@@ -21,4 +21,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://chaveirosena.pt/sitemap.xml
+Sitemap: https://chaveiroemergencial.com/sitemap.xml
