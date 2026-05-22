@@ -9,12 +9,15 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: var(--z-sticky);
-  background-color: var(--color-black);
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.72) 0%, rgba(0,0,0,.0) 100%);
   border-bottom: 2px solid transparent;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  transition: background-color var(--transition-base), background-image var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 #main-nav.scrolled {
+  background-color: var(--color-black);
+  background-image: none;
   border-color: var(--color-primary);
   box-shadow: var(--shadow-md);
 }
@@ -128,6 +131,11 @@
   padding-top: calc(72px + var(--space-24));
   padding-bottom: var(--space-24);
   background-color: var(--color-bg-dark);
+  /* Trocar url abaixo por foto real: url('/assets/img/hero-bg.jpg') */
+  background-image:
+    linear-gradient(to bottom right, rgba(0,0,0,.80) 0%, rgba(0,0,0,.55) 100%);
+  background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
 }
@@ -136,15 +144,23 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(255,195,0,.08) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 30% 60%, rgba(255,195,0,.07) 0%, transparent 60%);
   pointer-events: none;
 }
 
+/* Hero section em páginas internas (serviços, áreas, sobre, etc.) */
+.hero-section {
+  background-color: var(--color-bg-dark);
+  /* Trocar url abaixo por foto real: url('/assets/img/hero-bg.jpg') */
+  background-image:
+    linear-gradient(to bottom right, rgba(0,0,0,.82) 0%, rgba(0,0,0,.60) 100%);
+  background-size: cover;
+  background-position: center;
+}
+
 .hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: var(--space-16);
+  display: block;
+  max-width: 720px;
 }
 
 .hero-badge {
