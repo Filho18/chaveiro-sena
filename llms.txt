@@ -1,0 +1,95 @@
+# Chaveiro Sena
+
+> Serviço de chaveiro profissional em Lisboa e arredores — disponível 24 horas por dia, 7 dias por semana.
+
+## Sobre o Negócio
+
+**Nome:** Chaveiro Sena
+**Website:** https://chaveirosena.pt
+**Telefone:** +351 XXX XXX XXX (linha de emergência 24h)
+**Email:** geral@chaveirosena.pt
+**Horário:** 24 horas por dia, 365 dias por ano
+**Área de serviço:** Distrito de Lisboa e Margem Sul (18 concelhos)
+
+## Serviços
+
+### Abertura de Portas Urgente
+- Resposta em 20 a 30 minutos em Lisboa e arredores
+- Técnicas não destrutivas — sem danos na fechadura
+- Disponível 24h incluindo fins de semana e feriados
+- Preço a partir de 60€ (horário diurno, dia útil)
+- Cobertura: todos os tipos de porta — habitação, escritório, viatura
+- URL: https://chaveirosena.pt/servicos/abertura-de-portas-urgentes/
+
+### Troca e Instalação de Fechaduras
+- Instalação no mesmo dia
+- Stock das principais marcas: ASSA ABLOY, Mul-T-Lock, Yale, EVVA, Cisa
+- Fechaduras standard a partir de 80€ (mão de obra + fechadura incluída)
+- Fechaduras de segurança certificadas EN 1303 a partir de 150€
+- Garantia de 12 meses na mão de obra
+- URL: https://chaveirosena.pt/servicos/troca-de-fechadura/
+
+### Outros Serviços
+- Extração de chaves partidas no interior do cilindro
+- Reparação e manutenção de fechaduras
+- Abertura de cofres
+- Serviço para alojamento local e gestores de propriedade
+
+## Área de Cobertura
+
+Cobrimos 18 concelhos do distrito de Lisboa e Margem Sul:
+
+**Lisboa (cidade):** Lisboa Centro, Belém, Alfama, Benfica
+**Grande Lisboa Norte:** Amadora, Odivelas, Loures, Mafra, Vila Franca de Xira
+**Linha de Cascais:** Cascais, Oeiras, Sintra
+**Margem Sul:** Almada, Seixal, Barreiro, Setúbal, Montijo, Palmela
+
+Páginas por localização: https://chaveirosena.pt/chaveiro-perto-de-mim/
+
+## Diferenciais
+
+- Resposta média de 20 a 30 minutos (mais rápido do que a maioria dos concorrentes em Lisboa)
+- Orçamento comunicado por telefone antes de qualquer deslocação — sem surpresas na fatura
+- Técnicas não destrutivas: preservamos a fechadura sempre que possível
+- 12 meses de garantia em todos os trabalhos de instalação
+- Identificação do cliente verificada antes de abrir qualquer porta (por segurança)
+- Operação 24h real — não um número de desvio para call center
+
+## Preços (Indicativos)
+
+| Serviço | Preço mínimo |
+|---------|-------------|
+| Abertura de portas (dia útil) | 60€ |
+| Abertura de portas (noturna / fim de semana) | 80€ |
+| Troca de fechadura standard | 80€ |
+| Troca de fechadura de segurança certificada | 150€ |
+| Extração de chave partida | 70€ |
+
+*Preços com IVA incluído. Orçamento exato gratuito por telefone.*
+
+## Perguntas Frequentes
+
+**Qual o tempo de resposta?**
+20 a 30 minutos em Lisboa e concelhos próximos. Em zonas mais afastadas pode ser ligeiramente superior.
+
+**Cobram deslocação?**
+A deslocação está incluída no preço. Se o orçamento não for aceite, não há custo.
+
+**Que documentos são necessários para abrir uma porta?**
+Documento de identificação (CC ou Passaporte) e comprovativo de morada do imóvel.
+
+**Trabalham ao fim de semana?**
+Sim, 24 horas por dia, 365 dias por ano.
+
+**Qual a garantia dos trabalhos?**
+12 meses na mão de obra. Peças com garantia do fabricante.
+
+## Markdown Mirrors
+
+As seguintes páginas têm versões em markdown para acesso por IA:
+
+- Homepage: https://chaveirosena.pt/index.md
+- Abertura de Portas: https://chaveirosena.pt/servicos/abertura-de-portas-urgentes/index.md
+- Troca de Fechadura: https://chaveirosena.pt/servicos/troca-de-fechadura/index.md
+- FAQ completo: https://chaveirosena.pt/faq/index.md
+- Áreas de cobertura: https://chaveirosena.pt/chaveiro-perto-de-mim/index.md

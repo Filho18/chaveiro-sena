@@ -1,0 +1,17 @@
+# Cabeçalhos globais
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Cache para assets estáticos
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Markdown mirrors — servir como text/plain para bots de IA
+/*.md
+  Content-Type: text/plain; charset=utf-8
+
+/*/index.md
+  Content-Type: text/plain; charset=utf-8

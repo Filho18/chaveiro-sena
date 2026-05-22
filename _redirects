@@ -1,0 +1,5 @@
+# Redirect www to non-www
+https://www.chaveirosena.pt/* https://chaveirosena.pt/:splat 301!
+
+# 404 fallback
+/*    /404.html   404
