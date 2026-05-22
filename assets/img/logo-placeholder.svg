@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="48" viewBox="0 0 160 48">
-  <rect width="160" height="48" rx="4" fill="#111111"/>
-  <text x="12" y="34" font-family="Arial Black, sans-serif" font-size="26" font-weight="900" fill="#FFC300">CS</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48">
+  <rect width="200" height="48" rx="4" fill="#111111"/>
+  <text x="12" y="34" font-family="Arial Black, sans-serif" font-size="26" font-weight="900" fill="#FFC300">CE</text>
   <text x="52" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" letter-spacing="2">CHAVEIRO</text>
-  <text x="52" y="36" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#FFC300" letter-spacing="3">SENA</text>
+  <text x="52" y="36" font-family="Arial, sans-serif" font-size="9" font-weight="400" fill="#FFC300" letter-spacing="2">EMERGENCIAL</text>
 </svg>
