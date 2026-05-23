@@ -1,6 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48">
-  <rect width="200" height="48" rx="4" fill="#111111"/>
-  <text x="12" y="34" font-family="Arial Black, sans-serif" font-size="26" font-weight="900" fill="#FFC300">CE</text>
-  <text x="52" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" letter-spacing="2">CHAVEIRO</text>
-  <text x="52" y="36" font-family="Arial, sans-serif" font-size="9" font-weight="400" fill="#FFC300" letter-spacing="2">EMERGENCIAL</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" width="400" height="80">
+  <!-- EMERGENCIAL text -->
+  <text
+    x="4"
+    y="62"
+    font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-size="48"
+    font-weight="900"
+    fill="#FFC300"
+    letter-spacing="-0.5"
+  >EMERGENCIAL</text>
+
+  <!-- Key icon: circle -->
+  <circle cx="368" cy="20" r="15" fill="none" stroke="#FFC300" stroke-width="4"/>
+  <!-- Key shaft -->
+  <line x1="368" y1="35" x2="368" y2="74" stroke="#FFC300" stroke-width="4" stroke-linecap="round"/>
+  <!-- Tooth 1 -->
+  <line x1="368" y1="60" x2="382" y2="60" stroke="#FFC300" stroke-width="4" stroke-linecap="round"/>
+  <!-- Tooth 2 -->
+  <line x1="368" y1="71" x2="378" y2="71" stroke="#FFC300" stroke-width="4" stroke-linecap="round"/>
 </svg>
