@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+
+# HTML — sem cache, browser vai sempre buscar versão nova ao servidor
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Assets — cache de 1 ano (cache-busting feito via ?v= nos HTML)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
