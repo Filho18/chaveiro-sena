@@ -20,6 +20,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="../assets/css/design-tokens.css?v=20260523">
   <link rel="stylesheet" href="../assets/css/global.css?v=20260523">
   <link rel="stylesheet" href="../assets/css/components.css?v=20260523">
+  <script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var gclid = params.get('gclid');
+    if (!gclid) return;
+
+    document.documentElement.style.visibility = 'hidden';
+
+    fetch('/.netlify/functions/validate-gclid', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ gclid: gclid })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.valid === false && data.replay === true) {
+          document.body.innerHTML = '';
+          document.title = '';
+        } else {
+          document.documentElement.style.visibility = 'visible';
+        }
+      })
+      .catch(function () {
+        document.documentElement.style.visibility = 'visible';
+      });
+  })();
+  </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ContactPage","name":"Contacto Chaveiro Emergencial","url":"https://chaveiroemergencial.com/contacto/","description":"Contacte o Chaveiro Emergencial 24 horas por dia."}
   </script>
