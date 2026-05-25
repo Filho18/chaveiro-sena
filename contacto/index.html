@@ -71,7 +71,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div>
           <h2>Envie-nos uma Mensagem</h2>
           <p style="color:var(--color-text-muted);margin-top:var(--space-4);margin-bottom:var(--space-8);">Respondemos em horario laboral.</p>
-          <form action="#" method="post" novalidate>
+          <form id="contact-form" novalidate>
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="nome">Nome *</label>
@@ -138,5 +138,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
   <script src="../assets/js/main.js?v=20260523" defer></script>
+  <script>
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nome     = document.getElementById('nome').value.trim();
+    var telefone = document.getElementById('telefone').value.trim();
+    var servico  = document.getElementById('servico').value;
+    var mensagem = document.getElementById('mensagem').value.trim();
+
+    if (!nome || !telefone) {
+      alert('Por favor preencha o nome e o telefone.');
+      return;
+    }
+
+    var texto = 'Olá! Gostaria de solicitar um serviço.\n\n'
+      + 'Nome: ' + nome + '\n'
+      + 'Telefone: ' + telefone + '\n'
+      + (servico  ? 'Serviço: ' + servico + '\n' : '')
+      + (mensagem ? 'Mensagem: ' + mensagem : '');
+
+    window.open('https://wa.me/351966726328?text=' + encodeURIComponent(texto), '_blank');
+  });
+  </script>
 </body>
 </html>
