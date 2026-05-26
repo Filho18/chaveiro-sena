@@ -118,7 +118,7 @@
   .nav-inner {
     display: grid;
     grid-template-columns: 56px 1fr 56px;
-    height: 100px;
+    height: 116px;
     gap: 0;
   }
 
@@ -137,8 +137,8 @@
   }
 
   .nav-logo img {
-    height: 84px;
-    max-width: 220px;
+    height: 109px;
+    max-width: 260px;
     width: auto;
     object-fit: contain;
   }
@@ -319,12 +319,12 @@
   .hero-trust { gap: var(--space-6); flex-wrap: wrap; }
 
   .hero {
-    padding-top: calc(100px + var(--space-6));
+    padding-top: calc(116px + var(--space-6));
     padding-bottom: var(--space-12);
   }
 
   .hero-section {
-    padding-top: calc(100px + var(--space-6)) !important;
+    padding-top: calc(116px + var(--space-6)) !important;
   }
 }
 
