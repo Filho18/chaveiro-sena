@@ -118,7 +118,7 @@
   .nav-inner {
     display: grid;
     grid-template-columns: 48px 1fr 48px;
-    height: 64px;
+    height: 80px;
     gap: 0;
   }
 
@@ -137,8 +137,8 @@
   }
 
   .nav-logo img {
-    height: 48px;
-    max-width: 160px;
+    height: 64px;
+    max-width: 180px;
     width: auto;
     object-fit: contain;
   }
@@ -314,6 +314,15 @@
   .hero-inner > * { min-width: 0; }
   .hero-image { display: none; }
   .hero-trust { gap: var(--space-6); flex-wrap: wrap; }
+
+  .hero {
+    padding-top: calc(80px + var(--space-6));
+    padding-bottom: var(--space-12);
+  }
+
+  .hero-section {
+    padding-top: calc(80px + var(--space-6)) !important;
+  }
 }
 
 @media (max-width: 480px) {
