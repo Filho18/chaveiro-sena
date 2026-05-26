@@ -117,8 +117,8 @@
 @media (max-width: 900px) {
   .nav-inner {
     display: grid;
-    grid-template-columns: 48px 1fr 48px;
-    height: 80px;
+    grid-template-columns: 56px 1fr 56px;
+    height: 100px;
     gap: 0;
   }
 
@@ -137,11 +137,14 @@
   }
 
   .nav-logo img {
-    height: 64px;
-    max-width: 180px;
+    height: 84px;
+    max-width: 220px;
     width: auto;
     object-fit: contain;
   }
+
+  .nav-phone-icon svg { width: 32px; height: 32px; }
+  #menu-btn svg { width: 29px; height: 29px; }
 
   .nav-cta {
     display: flex;
@@ -316,12 +319,12 @@
   .hero-trust { gap: var(--space-6); flex-wrap: wrap; }
 
   .hero {
-    padding-top: calc(80px + var(--space-6));
+    padding-top: calc(100px + var(--space-6));
     padding-bottom: var(--space-12);
   }
 
   .hero-section {
-    padding-top: calc(80px + var(--space-6)) !important;
+    padding-top: calc(100px + var(--space-6)) !important;
   }
 }
 
