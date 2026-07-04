@@ -7,7 +7,7 @@ Serviço de chaveiro profissional em Lisboa e arredores. Disponível 24 horas po
 
 ## Serviços
 
-- **Abertura de Portas Urgente** — resposta em 20–30 minutos, a partir de 60€
+- **Abertura de Portas Urgente** — resposta rápida, a partir de 60€
 - **Troca de Fechadura** — instalação no mesmo dia, a partir de 80€, garantia 12 meses
 
 ## Área de Cobertura
@@ -16,8 +16,8 @@ Serviço de chaveiro profissional em Lisboa e arredores. Disponível 24 horas po
 
 ## Porquê o Chaveiro Emergencial
 
-- Resposta em 20–30 minutos
-- Técnicas não destrutivas — sem danos na fechadura
+- Resposta rápida à sua zona
+- Método menos invasivo — preservamos a fechadura sempre que possível
 - Orçamento gratuito por telefone antes de qualquer deslocação
 - 12 meses de garantia em instalações
 - Verificação de identidade obrigatória por segurança
@@ -25,6 +25,6 @@ Serviço de chaveiro profissional em Lisboa e arredores. Disponível 24 horas po
 ## FAQ Rápido
 
 **Quanto custa abrir uma porta?** A partir de 60€ (dia útil) ou 80€ (noturno/fim de semana).
-**Quanto demora a chegar?** Em média 20 a 30 minutos.
+**Quanto demora a chegar?** Chegamos rápido — o tempo depende da zona e do trânsito no momento.
 **Trabalham ao fim de semana?** Sim, 24h/365 dias.
 **Que documentos precisam?** CC ou Passaporte + comprovativo de morada.

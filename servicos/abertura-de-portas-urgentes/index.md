@@ -3,15 +3,15 @@
 Serviço de abertura de portas urgente em Lisboa e arredores. Disponível 24 horas por dia.
 
 **Telefone:** +351 XXX XXX XXX
-**Resposta:** 20–30 minutos
+**Resposta:** rápida (poucos minutos à sua zona)
 **Preço:** A partir de 60€
 
 ## Como Funciona
 
 1. Liga para nós — damos orçamento por telefone
 2. Confirmamos preço antes de sair
-3. Chegamos em ~30 minutos
-4. Abrimos a porta sem danos — pagamento só depois
+3. Chegamos rápido à sua zona
+4. Abrimos a porta com o método menos invasivo — pagamento só depois
 
 ## Tipos de Porta que Abrimos
 
@@ -31,6 +31,6 @@ Serviço de abertura de portas urgente em Lisboa e arredores. Disponível 24 hor
 
 ## FAQ
 
-**A abertura danifica a fechadura?** Não. Técnicas não destrutivas.
+**A abertura danifica a fechadura?** Damos prioridade ao método menos invasivo e, sempre que possível, preservamos a fechadura. Se for necessário substituir, é comunicado antes.
 **Trabalham de noite?** Sim, 24h/365 dias.
 **Precisam de identificação?** Sim. CC + comprovativo de morada.

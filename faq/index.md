@@ -3,7 +3,7 @@
 ## Tempos e Disponibilidade
 
 **Qual o tempo de resposta para abertura de portas urgente?**
-Em média 20 a 30 minutos em Lisboa e arredores. Operamos 24h/7 dias, incluindo feriados.
+Chegamos rápido a Lisboa e arredores. O tempo depende da zona, do trânsito e da disponibilidade no momento. Operamos 24h/7 dias, incluindo feriados.
 
 **Trabalham ao fim de semana e feriados?**
 Sim, 24 horas por dia, 365 dias por ano.
@@ -28,7 +28,7 @@ Numerário e transferência bancária. Pagamento na conclusão do serviço.
 ## Serviços e Garantia
 
 **A abertura danifica a fechadura?**
-Não. Técnicas não destrutivas. Substituição só em casos extremos, sempre comunicada antes.
+Damos prioridade ao método menos invasivo e, sempre que possível, preservamos a fechadura. Se for necessário substituir, é comunicado e orçamentado antes.
 
 **Fazem troca de fechadura no próprio dia?**
 Sim. Stock em viatura, instalação no mesmo dia incluindo fins de semana.
