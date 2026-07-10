@@ -108,6 +108,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 @media (max-width: 480px) {
   .grid-4, .grid-6 { grid-template-columns: 1fr; }
+  .btn--lg { font-size: var(--font-size-base); padding: var(--space-4) var(--space-6); }
 }
 
 /* ── BOTÕES ── */
@@ -127,7 +128,10 @@ img { max-width: 100%; height: auto; display: block; }
   cursor: pointer;
   text-decoration: none;
   transition: all var(--transition-fast);
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  line-height: 1.2;
   font-size: var(--font-size-base);
 }
 
