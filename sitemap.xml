@@ -13,6 +13,8 @@
   <!-- Serviços -->
   <url><loc>https://chaveiroemergencial.com/servicos/abertura-de-portas-urgentes/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://chaveiroemergencial.com/servicos/troca-de-fechadura/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://chaveiroemergencial.com/chaveiro-24-horas/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://chaveiroemergencial.com/chaveiro-automovel/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
 
   <!-- Hub de localização -->
   <url><loc>https://chaveiroemergencial.com/chaveiro-perto-de-mim/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
