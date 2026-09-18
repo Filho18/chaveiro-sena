@@ -15,8 +15,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <title>Chaveiros na Margem Sul — Abertura de Portas 24h | Chaveiro Emergencial</title>
-  <meta name="description" content="Chaveiros na Margem Sul, 24h por dia. Ligue e ligamos-lhe ao chaveiro mais próximo de si. Abertura de portas urgente, orçamento no local.">
+  <title>Chaveiros na Margem Sul — Abertura de Portas e Troca de Fechadura 24h | Chaveiro Emergencial</title>
+  <meta name="description" content="Chaveiros na Margem Sul, disponível 24 horas. Abertura de portas urgente e troca de fechaduras. Ligamos-lhe ao chaveiro mais próximo de si.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://chaveiroemergencial.com/chaveiros-margem-sul/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "name": "Chaveiro Emergencial — Margem Sul",
     "url": "https://chaveiroemergencial.com/chaveiros-margem-sul/",
     "telephone": "+351-912-756-337",
-    "description": "Rede de chaveiros na Margem Sul. Abertura de portas urgente 24 horas por dia, todos os dias. Ligamos o cliente ao profissional mais próximo da sua zona.",
+    "description": "Rede de chaveiros na Margem Sul, disponível 24 horas. Abertura de portas urgente e troca de fechaduras. Ligamos o cliente ao profissional mais próximo da sua zona.",
     "areaServed": [
       { "@type": "City", "name": "Almada" },
       { "@type": "City", "name": "Setúbal" },
@@ -104,19 +104,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   </script>
   <style>
-    /* Barra de chamada fixa — 1 objetivo nesta pagina: a chamada. */
-    .lp-topbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-sticky);
-      background: var(--color-black);
-      border-bottom: 1px solid rgba(255, 255, 255, .08);
-    }
-    .lp-topbar-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: var(--space-4); padding: var(--space-3) 0;
-    }
-    .lp-topbar img { display: block; }
-    /* alvo de toque de 44px — e um botao de chamada numa pagina so de chamadas */
-    .lp-topbar .btn { min-height: 44px; }
+    /* Barra de chamada fixa em baixo — o §6 pede CTA sticky. O cabecalho e o
+       do site (nav #main-nav), para esta pagina nao destoar das outras. */
     .lp-sticky-cta {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-sticky);
       padding: var(--space-3) var(--space-4);
@@ -183,24 +172,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <header class="lp-topbar">
-    <div class="container lp-topbar-inner">
-      <a href="/" aria-label="Chaveiro Emergencial — início">
-        <img src="../assets/img/logo.png" alt="Chaveiro Emergencial" width="150" height="38" fetchpriority="high">
-      </a>
-      <a href="tel:+351912756337" class="btn btn--primary btn--sm">📞 912 756 337</a>
-    </div>
+  <header>
+    <nav id="main-nav" aria-label="Navegação principal">
+      <div class="container nav-inner">
+        <a href="tel:+351912756337" class="nav-phone-icon" aria-label="Ligar agora"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a><a href="/" class="nav-logo"><img src="../assets/img/logo.png" alt="Chaveiro Emergencial" width="160" height="40" fetchpriority="high"></a>
+        <ul class="nav-links" role="list">
+          <li><a href="/servicos/abertura-de-portas-urgentes/">Abertura de Portas</a></li>
+          <li><a href="/servicos/troca-de-fechadura/">Troca de Fechadura</a></li>
+          <li><a href="/chaveiro-perto-de-mim/">Áreas</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/sobre/">Sobre</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:+351912756337" class="nav-phone">📞 +351 912 756 337</a>
+          <button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" role="navigation"><div class="mobile-menu-inner">
+        <a href="/servicos/abertura-de-portas-urgentes/">Abertura de Portas</a>
+        <a href="/servicos/troca-de-fechadura/">Troca de Fechadura</a>
+        <a href="/chaveiro-perto-de-mim/">Áreas de Serviço</a>
+        <a href="/blog/">Blog</a><a href="/sobre/">Sobre Nós</a><a href="/contacto/">Contacto</a>
+        <div class="mobile-phone-cta"><a href="tel:+351912756337" class="btn btn--primary" style="width:100%;justify-content:center;">📞 Ligar Agora — 24h</a></div>
+      </div></div>
+    </nav>
   </header>
 
   <main>
-    <section class="section section--dark hero-section" style="padding-top:calc(68px + var(--space-12));">
+    <section class="section section--dark hero-section" style="padding-top:calc(72px + var(--space-16));">
       <div class="container" style="text-align:center;">
-        <span class="section-label">Piquete 24 Horas</span>
-        <h1 style="color:#fff;margin-top:var(--space-3);margin-bottom:var(--space-5);">
-          Chaveiros na<br><span style="color:var(--color-primary);">Margem Sul</span>
+        <span class="section-label">Serviço Local</span>
+        <h1 style="color:#fff;margin-top:var(--space-3);margin-bottom:var(--space-6);">
+          Chaveiros na Margem Sul<br><span style="color:var(--color-primary);">Disponível 24 Horas</span>
         </h1>
-        <p style="color:rgba(255,255,255,.8);font-size:var(--font-size-lg);max-width:620px;margin:0 auto var(--space-8);">
-          Liga para nós e ligamos-te ao profissional mais próximo da tua região em minutos.
+        <p style="color:rgba(255,255,255,.75);font-size:var(--font-size-lg);max-width:600px;margin:0 auto var(--space-8);">
+          Liga para nós e ligamos-te ao profissional mais próximo da tua região em minutos. Abertura de portas urgente e troca de fechaduras.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center;">
           <a href="tel:+351912756337" class="btn btn--primary btn--lg lp-hero-cta">📞 Ligar agora · 912 756 337</a>
@@ -310,24 +318,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="section section--alt">
       <div class="container" style="max-width:var(--container-narrow);">
         <div class="section-header">
-          <span class="section-label">O serviço</span>
-          <h2>Abertura de portas urgente</h2>
+          <span class="section-label">Serviços na Margem Sul</span>
+          <h2>O que Fazemos</h2>
+          <p>Abertura de portas urgente e troca de fechaduras, em toda a Margem Sul, disponível 24 horas.</p>
         </div>
         <div class="grid-3">
           <article style="background:var(--color-bg);border-radius:var(--radius-lg);padding:var(--space-8);">
             <div style="font-size:40px;margin-bottom:var(--space-4);">🚪</div>
-            <h3 style="font-size:var(--font-size-xl);margin-bottom:var(--space-3);">Ficou fechado fora</h3>
-            <p style="color:var(--color-text-muted);font-size:var(--font-size-sm);">A porta bateu, a chave ficou lá dentro ou já não a encontra. É o caso mais comum e é o que fazemos todos os dias.</p>
+            <h3 style="font-size:var(--font-size-xl);margin-bottom:var(--space-3);">Abertura de Portas</h3>
+            <p style="color:var(--color-text-muted);font-size:var(--font-size-sm);margin-bottom:var(--space-6);">A porta bateu, a chave ficou lá dentro ou já não a encontra. Abertura de portas urgente pelo método menos invasivo, com avaliação e preço ditos no local antes de começar.</p>
+            <a href="/servicos/abertura-de-portas-urgentes/" class="btn btn--outline btn--sm">Saber mais</a>
           </article>
           <article style="background:var(--color-bg);border-radius:var(--radius-lg);padding:var(--space-8);">
-            <div style="font-size:40px;margin-bottom:var(--space-4);">🔧</div>
-            <h3 style="font-size:var(--font-size-xl);margin-bottom:var(--space-3);">Método menos invasivo</h3>
-            <p style="color:var(--color-text-muted);font-size:var(--font-size-sm);">Começamos sempre pela técnica que mexe o menos possível na sua porta. Só se avança para outra depois de lhe explicarmos porquê.</p>
+            <div style="font-size:40px;margin-bottom:var(--space-4);">🔒</div>
+            <h3 style="font-size:var(--font-size-xl);margin-bottom:var(--space-3);">Troca de Fechaduras</h3>
+            <p style="color:var(--color-text-muted);font-size:var(--font-size-sm);margin-bottom:var(--space-6);">Substituição de fechaduras na Margem Sul no próprio dia. Também depois de um arrombamento ou de uma chave perdida, quando já não se quer a fechadura antiga.</p>
+            <a href="/servicos/troca-de-fechadura/" class="btn btn--outline btn--sm">Saber mais</a>
           </article>
           <article style="background:var(--color-bg);border-radius:var(--radius-lg);padding:var(--space-8);">
-            <div style="font-size:40px;margin-bottom:var(--space-4);">📋</div>
-            <h3 style="font-size:var(--font-size-xl);margin-bottom:var(--space-3);">Avaliação no local</h3>
-            <p style="color:var(--color-text-muted);font-size:var(--font-size-sm);">A avaliação é feita à frente do cliente, com o preço dito antes de começar. Passamos fatura para o seguro.</p>
+            <div style="font-size:40px;margin-bottom:var(--space-4);">🔑</div>
+            <h3 style="font-size:var(--font-size-xl);margin-bottom:var(--space-3);">Outros Serviços</h3>
+            <p style="color:var(--color-text-muted);font-size:var(--font-size-sm);margin-bottom:var(--space-6);">Extração de chaves partidas e reparação de fechaduras. Se não tem a certeza do que precisa, descreva ao telefone e dizemos-lhe.</p>
+            <a href="/contacto/" class="btn btn--outline btn--sm">Contactar</a>
           </article>
         </div>
       </div>
