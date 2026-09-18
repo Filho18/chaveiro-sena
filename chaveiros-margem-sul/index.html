@@ -145,9 +145,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .lp-promise h3 { font-size: var(--font-size-lg); margin-bottom: var(--space-2); }
     .lp-promise p { color: var(--color-text-muted); font-size: var(--font-size-sm); margin: 0; }
+    /* numeros de confianca: linha limpa de 3, nao empilhados */
+    .lp-trust {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4); margin-top: var(--space-10);
+    }
+    .lp-trust__num {
+      font-family: var(--font-heading); font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-black); color: var(--color-primary);
+    }
+    .lp-trust__label {
+      font-size: var(--font-size-xs); color: rgba(255, 255, 255, .55);
+      line-height: var(--line-height-tight);
+    }
     /* espaco para a barra fixa de baixo nao tapar o rodape */
     body { padding-bottom: 88px; }
-    @media (min-width: 768px) { body { padding-bottom: 0; } .lp-sticky-cta { display: none; } }
+    @media (max-width: 600px) {
+      /* o CTA do hero partia em duas linhas a 390px */
+      .lp-hero-cta { width: 100%; justify-content: center; }
+    }
+    @media (min-width: 768px) {
+      body { padding-bottom: 0; }
+      .lp-sticky-cta { display: none; }
+      .lp-trust { max-width: 620px; margin-left: auto; margin-right: auto; }
+    }
   </style>
 </head>
 <body>
@@ -166,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </header>
 
   <main>
-    <section class="section section--dark hero-section" style="padding-top:calc(68px + var(--space-16));">
+    <section class="section section--dark hero-section" style="padding-top:calc(68px + var(--space-12));">
       <div class="container" style="text-align:center;">
         <span class="section-label">Piquete 24 Horas</span>
         <h1 style="color:#fff;margin-top:var(--space-3);margin-bottom:var(--space-5);">
@@ -176,20 +197,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Liga para nós e ligamos-te ao profissional mais próximo da tua região em minutos.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center;">
-          <a href="tel:+351912756337" class="btn btn--primary btn--lg">📞 Ligar agora · 912 756 337</a>
+          <a href="tel:+351912756337" class="btn btn--primary btn--lg lp-hero-cta">📞 Ligar agora · 912 756 337</a>
         </div>
-        <div style="display:flex;gap:var(--space-10);margin-top:var(--space-10);flex-wrap:wrap;justify-content:center;">
+        <div class="lp-trust">
           <div>
-            <div style="font-family:var(--font-heading);font-size:var(--font-size-2xl);font-weight:var(--font-weight-black);color:var(--color-primary);">24/7</div>
-            <div style="font-size:var(--font-size-sm);color:rgba(255,255,255,.55);">Dias úteis, fins de semana e feriados</div>
+            <div class="lp-trust__num">24/7</div>
+            <div class="lp-trust__label">Dias úteis, fins de semana e feriados</div>
           </div>
           <div>
-            <div style="font-family:var(--font-heading);font-size:var(--font-size-2xl);font-weight:var(--font-weight-black);color:var(--color-primary);">9</div>
-            <div style="font-size:var(--font-size-sm);color:rgba(255,255,255,.55);">Concelhos da Margem Sul</div>
+            <div class="lp-trust__num">9</div>
+            <div class="lp-trust__label">Concelhos da Margem Sul</div>
           </div>
           <div>
-            <div style="font-family:var(--font-heading);font-size:var(--font-size-2xl);font-weight:var(--font-weight-black);color:var(--color-primary);">0 €</div>
-            <div style="font-size:var(--font-size-sm);color:rgba(255,255,255,.55);">Custo da chamada</div>
+            <div class="lp-trust__num">0 €</div>
+            <div class="lp-trust__label">Custo da chamada</div>
           </div>
         </div>
       </div>
