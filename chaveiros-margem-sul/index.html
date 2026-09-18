@@ -161,8 +161,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* espaco para a barra fixa de baixo nao tapar o rodape */
     body { padding-bottom: 88px; }
     @media (max-width: 600px) {
-      /* o CTA do hero partia em duas linhas a 390px */
-      .lp-hero-cta { width: 100%; justify-content: center; }
+      /* O CTA do hero partia em duas linhas a 390px: o btn--lg tem 48px de padding
+         de cada lado, o que deixava 231px para um texto que precisa de 236px. */
+      .lp-hero-cta {
+        width: 100%; justify-content: center; white-space: nowrap;
+        padding-left: var(--space-5); padding-right: var(--space-5);
+      }
     }
     @media (min-width: 768px) {
       body { padding-bottom: 0; }
