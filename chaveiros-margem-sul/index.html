@@ -116,6 +116,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-top: 1px solid rgba(255, 255, 255, .1);
     }
     .lp-sticky-cta .btn { width: 100%; justify-content: center; }
+    /* Com o menu aberto a 360x640 a barra fixa tapava o botao "Ligar Agora" do
+       proprio menu (38px de sobreposicao). Com o menu aberto, a barra sai. */
+    header:has(#mobile-menu.is-open) ~ .lp-sticky-cta { display: none; }
     .lp-step {
       display: flex; gap: var(--space-5); align-items: flex-start;
       padding: var(--space-6) 0; border-bottom: 1px solid var(--color-border);
