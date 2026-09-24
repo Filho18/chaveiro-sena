@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Sensor — Chaveiro Sena</title>
+<style>
+  :root{
+    --bg:#0e1116; --painel:#161b22; --linha:#232b36; --texto:#e6edf3; --fraco:#8b949e;
+    --ok:#3fb950; --aviso:#d29922; --mau:#f85149; --azul:#58a6ff; --provisorio:#2d2416;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--texto);
+       font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:16px}
+  h1{font-size:18px;margin:0 0 4px}
+  h2{font-size:14px;margin:0 0 10px;color:var(--fraco);text-transform:uppercase;letter-spacing:.06em}
+  .sub{color:var(--fraco);font-size:12px;margin-bottom:18px}
+  .cartao{background:var(--painel);border:1px solid var(--linha);border-radius:10px;padding:16px;margin-bottom:14px}
+  .grelha{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;color:var(--fraco);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--linha);
+     position:sticky;top:0;background:var(--painel);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  td{padding:6px 8px;border-bottom:1px solid var(--linha);vertical-align:top}
+  tr.provisorio td{background:var(--provisorio)}
+  .rolar{max-height:460px;overflow:auto}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .etq{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:600}
+  .limpo{background:#132e1a;color:var(--ok)} .marcado{background:#3d1416;color:var(--mau)}
+  .suspeito{background:#3a2d10;color:var(--aviso)} .lista_branca{background:#102a3d;color:var(--azul)}
+  .nulo{background:#21262d;color:var(--fraco)}
+  .funil{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap}
+  .passo{flex:1;min-width:110px;background:#0d1117;border:1px solid var(--linha);border-radius:8px;padding:12px}
+  .passo b{display:block;font-size:26px;font-variant-numeric:tabular-nums;line-height:1.1}
+  .passo span{color:var(--fraco);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  .pct{color:var(--azul);font-size:12px;font-weight:600}
+  input,select,button{background:#0d1117;color:var(--texto);border:1px solid var(--linha);
+                      border-radius:6px;padding:6px 9px;font:inherit;font-size:13px}
+  button{cursor:pointer}
+  button:hover{border-color:var(--azul)}
+  .filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .aviso{background:#3a2d10;border:1px solid #6b4f12;color:#f0c674;padding:9px 12px;border-radius:8px;
+         font-size:12px;margin-bottom:14px}
+  .vazio{color:var(--fraco);text-align:center;padding:26px;font-style:italic}
+  #entrar{max-width:380px;margin:12vh auto}
+  .barra{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .oculto{display:none}
+  code{background:#0d1117;padding:1px 5px;border-radius:4px;font-size:12px}
+</style>
+</head>
+<body>
+
+<div id="entrar" class="cartao">
+  <h1>Sensor — Chaveiro Sena</h1>
+  <p class="sub">Painel privado. Introduz o token de acesso.</p>
+  <div style="display:flex;gap:8px">
+    <input id="tok" type="password" placeholder="token" style="flex:1" autocomplete="off">
+    <button onclick="entrar()">Entrar</button>
+  </div>
+  <p id="erroEntrar" class="sub oculto" style="color:var(--mau);margin-top:10px"></p>
+</div>
+
+<div id="app" class="oculto">
+  <h1>Sensor de cliques — Chaveiro Sena</h1>
+  <p class="sub" id="cabecalho"></p>
+
+  <div class="barra">
+    <label>Janela
+      <select id="dias" onchange="carregar()">
+        <option value="1">hoje</option><option value="7">7 dias</option>
+        <option value="14" selected>14 dias</option><option value="30">30 dias</option>
+      </select>
+    </label>
+    <button onclick="carregar()">Atualizar</button>
+    <button id="btnIp" onclick="alternarIp()">Revelar IPs</button>
+    <button onclick="sair()" style="margin-left:auto">Sair</button>
+  </div>
+
+  <div class="aviso">
+    As <b>últimas 48 h</b> aparecem destacadas: os veredictos ainda podem mudar nessa janela — o motor
+    reavalia tudo o que tenha menos de 48 h em cada passagem. Contagem sempre da <code>click_log_unico</code>,
+    sem duplicados e sem bots.
+  </div>
+
+  <div class="cartao">
+    <h2>Funil</h2>
+    <div class="grelha">
+      <div><h2 style="font-size:12px">Hoje</h2><div class="funil" id="funilHoje"></div></div>
+      <div><h2 style="font-size:12px" id="tituloJanela">Janela</h2><div class="funil" id="funilJanela"></div></div>
+    </div>
+    <div class="rolar" style="max-height:200px;margin-top:14px">
+      <table><thead><tr><th>Dia</th><th class="num">Cliques</th><th class="num">Chegaram</th>
+      <th class="num">Ligaram</th><th class="num">% chegada</th><th class="num">% chamada</th></tr></thead>
+      <tbody id="diario"></tbody></table>
+    </div>
+  </div>
+
+  <div class="cartao">
+    <h2>Cliques</h2>
+    <div class="filtros">
+      <input id="fKw" placeholder="keyword" oninput="pintarCliques()">
+      <input id="fRegiao" placeholder="região" oninput="pintarCliques()">
+      <input id="fData" type="date" oninput="pintarCliques()">
+      <select id="fVeredicto" onchange="pintarCliques()">
+        <option value="">todos os veredictos</option><option>limpo</option><option>suspeito</option>
+        <option>marcado</option><option>lista_branca</option>
+      </select>
+      <select id="fDisp" onchange="pintarCliques()">
+        <option value="">todos os dispositivos</option><option value="m">móvel</option>
+        <option value="c">computador</option><option value="t">tablet</option>
+      </select>
+      <span id="contaCliques" class="sub" style="margin:0;align-self:center"></span>
+    </div>
+    <div class="rolar">
+      <table><thead><tr><th>Quando</th><th>Keyword</th><th>Região</th><th>IP</th><th>Disp.</th>
+      <th>Veredicto</th><th class="num">Score</th><th class="num">s→pouso</th><th class="num">s→chamada</th></tr></thead>
+      <tbody id="tCliques"></tbody></table>
+    </div>
+  </div>
+
+  <div class="grelha">
+    <div class="cartao"><h2>Por região</h2><div class="rolar" style="max-height:300px">
+      <table><thead><tr><th>Região</th><th class="num">Cliq.</th><th class="num">Marc.</th>
+      <th class="num">Cham.</th><th class="num">Taxa</th></tr></thead><tbody id="tRegiao"></tbody></table></div></div>
+    <div class="cartao"><h2>Por keyword</h2><div class="rolar" style="max-height:300px">
+      <table><thead><tr><th>Keyword</th><th class="num">Cliq.</th><th class="num">Marc.</th>
+      <th class="num">Cham.</th><th class="num">Taxa</th></tr></thead><tbody id="tKeyword"></tbody></table></div></div>
+  </div>
+
+  <div class="grelha">
+    <div class="cartao"><h2>Dispositivos com mais de um IP</h2><div class="rolar" style="max-height:260px">
+      <table><thead><tr><th>device_id</th><th class="num">IPs</th><th class="num">Cliques</th>
+      <th class="num">Chamadas</th></tr></thead><tbody id="tDev"></tbody></table></div></div>
+    <div class="cartao"><h2>IPs com mais de um dispositivo</h2><div class="rolar" style="max-height:260px">
+      <table><thead><tr><th>IP</th><th class="num">Disp.</th><th class="num">Cliques</th>
+      <th class="num">Chamadas</th></tr></thead><tbody id="tIp"></tbody></table></div></div>
+  </div>
+
+  <div class="cartao">
+    <h2>Chamadas recentes</h2>
+    <div class="rolar" style="max-height:300px">
+      <table><thead><tr><th>Quando</th><th>Keyword</th><th>Região</th><th>Página</th>
+      <th>gclid</th><th class="num">s: pouso→chamada</th></tr></thead><tbody id="tChamadas"></tbody></table>
+    </div>
+  </div>
+
+  <div class="cartao">
+    <h2>Saúde do sensor</h2>
+    <div class="grelha" id="saude"></div>
+  </div>
+</div>
+
+<script>
+const CHAVE='cs_painel_tok', VALIDADE=24*60*60*1000;
+let dados=null, revelar=false;
+
+function token(){
+  try{
+    const v=JSON.parse(localStorage.getItem(CHAVE)||'null');
+    if(!v||!v.t) return null;
+    if(Date.now()-v.em>VALIDADE){ localStorage.removeItem(CHAVE); return null; }  // expira a 24 h
+    return v.t;
+  }catch(e){ return null; }
+}
+function guardar(t){ try{ localStorage.setItem(CHAVE,JSON.stringify({t:t,em:Date.now()})); }catch(e){} }
+function sair(){ try{ localStorage.removeItem(CHAVE); }catch(e){} location.reload(); }
+
+function entrar(){
+  const t=document.getElementById('tok').value.trim();
+  if(!t) return;
+  guardar(t); carregar(true);
+}
+function alternarIp(){ revelar=!revelar; document.getElementById('btnIp').textContent=revelar?'Esconder IPs':'Revelar IPs'; carregar(); }
+
+const n=v=>(v===null||v===undefined)?'—':v;
+const pct=v=>(v===null||v===undefined)?'—':v+'%';
+const dt=s=>{ if(!s) return '—'; const d=new Date(s);
+  return d.toLocaleString('pt-PT',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}); };
+const esc=s=>String(s===null||s===undefined?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+async function carregar(primeira){
+  const t=token();
+  if(!t){ document.getElementById('entrar').classList.remove('oculto');
+          document.getElementById('app').classList.add('oculto'); return; }
+  const dias=document.getElementById('dias')?document.getElementById('dias').value:14;
+  try{
+    const r=await fetch(`/.netlify/functions/painel?dias=${dias}${revelar?'&revelar=1':''}`,
+                        {headers:{Authorization:'Bearer '+t}});
+    if(r.status===401){
+      localStorage.removeItem(CHAVE);
+      const e=document.getElementById('erroEntrar');
+      e.textContent='Token inválido.'; e.classList.remove('oculto');
+      document.getElementById('entrar').classList.remove('oculto');
+      document.getElementById('app').classList.add('oculto'); return;
+    }
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    dados=await r.json();
+    document.getElementById('entrar').classList.add('oculto');
+    document.getElementById('app').classList.remove('oculto');
+    pintar();
+  }catch(e){
+    if(primeira){ const el=document.getElementById('erroEntrar');
+      el.textContent='Falhou a ligação: '+e.message; el.classList.remove('oculto'); }
+  }
+}
+
+function pintar(){
+  document.getElementById('cabecalho').textContent =
+    'Atualizado '+dt(dados.gerado_em)+' · janela de '+dados.janela_dias+' dias'+
+    (dados.ips_revelados?' · IPs revelados':' · IPs mascarados');
+  document.getElementById('tituloJanela').textContent='Últimos '+dados.janela_dias+' dias';
+  funil('funilHoje',dados.funil_hoje); funil('funilJanela',dados.funil_janela);
+
+  const d=document.getElementById('diario');
+  d.innerHTML = (dados.funil_diario||[]).length ? dados.funil_diario.slice().reverse().map(x=>{
+    const pc=x.cliques?Math.round(1000*x.chegaram/x.cliques)/10:null;
+    const pl=x.cliques?Math.round(1000*x.ligaram/x.cliques)/10:null;
+    return `<tr><td>${esc(x.dia)}</td><td class="num">${x.cliques}</td><td class="num">${x.chegaram}</td>
+            <td class="num">${x.ligaram}</td><td class="num">${pct(pc)}</td><td class="num">${pct(pl)}</td></tr>`;
+  }).join('') : '<tr><td colspan="6" class="vazio">Sem cliques nesta janela.</td></tr>';
+
+  pintarCliques();
+  ranking('tRegiao',dados.ranking_regiao); ranking('tKeyword',dados.ranking_keyword);
+
+  const dv=document.getElementById('tDev');
+  dv.innerHTML=(dados.device_multi_ip||[]).length?dados.device_multi_ip.map(x=>
+    `<tr><td><code>${esc(x.device_id)}</code></td><td class="num">${x.ips}</td>
+     <td class="num">${x.cliques}</td><td class="num">${x.chamadas}</td></tr>`).join('')
+    :'<tr><td colspan="4" class="vazio">Nenhum dispositivo em mais de um IP.</td></tr>';
+
+  const ip=document.getElementById('tIp');
+  ip.innerHTML=(dados.ip_multi_device||[]).length?dados.ip_multi_device.map(x=>
+    `<tr><td><code>${esc(x.ip||x.ip_mascarado)}</code></td><td class="num">${x.dispositivos}</td>
+     <td class="num">${x.cliques}</td><td class="num">${x.chamadas}</td></tr>`).join('')
+    :'<tr><td colspan="4" class="vazio">Nenhum IP com mais de um dispositivo.</td></tr>';
+
+  const ch=document.getElementById('tChamadas');
+  ch.innerHTML=(dados.chamadas||[]).length?dados.chamadas.map(x=>
+    `<tr><td>${dt(x.quando)}</td><td>${esc(n(x.keyword))}</td><td>${esc(n(x.regiao))}</td>
+     <td>${esc(n(x.pagina))}</td><td><code>${esc(x.gclid)}</code></td>
+     <td class="num">${n(x.seg_pouso_ate_chamada)}</td></tr>`).join('')
+    :'<tr><td colspan="6" class="vazio">Sem chamadas nesta janela.</td></tr>';
+
+  const s=dados.saude, cor=v=>v?'var(--mau)':'var(--ok)';
+  document.getElementById('saude').innerHTML=`
+    <div class="passo"><span>Última linha gravada</span><b style="font-size:15px">${dt(s.ultima_linha)}</b></div>
+    <div class="passo"><span>Linhas na janela</span><b>${s.linhas_cruas_janela}</b></div>
+    <div class="passo"><span>Duplicados colapsados</span><b style="color:${cor(s.duplicados>0)}">${s.duplicados}</b></div>
+    <div class="passo"><span>Bots excluídos</span><b>${s.bots_excluidos}</b></div>
+    <div class="passo"><span>lpurl diferente de ok</span><b style="color:${cor(s.lpurl_nao_ok>0)}">${s.lpurl_nao_ok}</b></div>
+    <div class="passo"><span>Sem device_id</span><b style="color:${cor(s.sem_device_id>0)}">${s.sem_device_id}</b></div>
+    <div class="passo"><span>Região por resolver</span><b style="color:${cor(s.por_resolver_loc>0)}">${s.por_resolver_loc}</b></div>
+    <div class="passo"><span>Cron do sensor</span><b style="color:${cor(!s.cron_ativo)};font-size:15px">${s.cron_ativo?'ativo':'PARADO'}</b></div>
+    <div class="passo" style="grid-column:1/-1"><span>lpurl por estado</span>
+      <b style="font-size:13px;font-weight:400">${esc(JSON.stringify(s.lpurl_por_estado))}</b></div>`;
+}
+
+function funil(id,f){
+  const el=document.getElementById(id);
+  if(!f||!f.cliques){ el.innerHTML='<div class="vazio" style="flex:1">Sem cliques.</div>'; return; }
+  el.innerHTML=`
+    <div class="passo"><span>Cliques cobrados</span><b>${f.cliques}</b></div>
+    <div class="passo"><span>Chegaram ao site</span><b>${f.chegaram}</b><span class="pct">${pct(f.pct_chegada)}</span></div>
+    <div class="passo"><span>Ligaram</span><b>${f.ligaram}</b><span class="pct">${pct(f.pct_chamada)}</span></div>`;
+}
+
+function ranking(id,lista){
+  const el=document.getElementById(id);
+  el.innerHTML=(lista||[]).length?lista.map(x=>
+    `<tr><td>${esc(x.nome)}</td><td class="num">${x.cliques}</td>
+     <td class="num">${x.marcados||0}</td><td class="num">${x.chamadas}</td>
+     <td class="num">${pct(x.taxa_chamada)}</td></tr>`).join('')
+    :'<tr><td colspan="5" class="vazio">Sem dados.</td></tr>';
+}
+
+function pintarCliques(){
+  if(!dados) return;
+  const kw=document.getElementById('fKw').value.toLowerCase().trim();
+  const rg=document.getElementById('fRegiao').value.toLowerCase().trim();
+  const da=document.getElementById('fData').value;
+  const vd=document.getElementById('fVeredicto').value;
+  const dp=document.getElementById('fDisp').value;
+  const filtrados=(dados.cliques||[]).filter(c=>
+    (!kw||String(c.keyword||'').toLowerCase().includes(kw)) &&
+    (!rg||String(c.regiao||'').toLowerCase().includes(rg)) &&
+    (!da||String(c.quando||'').slice(0,10)===da) &&
+    (!vd||c.veredicto===vd) && (!dp||c.dispositivo===dp));
+  document.getElementById('contaCliques').textContent=filtrados.length+' de '+(dados.cliques||[]).length;
+  document.getElementById('tCliques').innerHTML=filtrados.length?filtrados.map(c=>
+    `<tr class="${c.provisorio?'provisorio':''}">
+      <td>${dt(c.quando)}${c.provisorio?' <span class="etq suspeito">provisório</span>':''}</td>
+      <td>${esc(n(c.keyword))}</td><td>${esc(n(c.regiao))}</td>
+      <td><code>${esc(c.ip||c.ip_mascarado)}</code></td><td>${esc(n(c.dispositivo))}</td>
+      <td><span class="etq ${c.veredicto||'nulo'}">${esc(c.veredicto||'por avaliar')}</span></td>
+      <td class="num">${n(c.score)}</td><td class="num">${n(c.seg_ate_pouso)}</td>
+      <td class="num">${n(c.seg_ate_chamada)}</td></tr>`).join('')
+    :'<tr><td colspan="9" class="vazio">Nenhum clique com estes filtros.</td></tr>';
+}
+
+document.getElementById('tok').addEventListener('keydown',e=>{ if(e.key==='Enter') entrar(); });
+carregar();
+</script>
+</body>
+</html>

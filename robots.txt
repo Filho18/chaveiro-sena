@@ -22,3 +22,7 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://chaveiroemergencial.com/sitemap.xml
+
+# Painel privado do sensor de cliques — nao indexar
+User-agent: *
+Disallow: /painel/
